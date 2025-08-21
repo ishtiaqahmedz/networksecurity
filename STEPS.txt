@@ -3,4 +3,4 @@ in future), created network_data folder, and notebooks folder, networksecurity u
 along with dockerfile and setup.py etc files. After that, we created ".env" file, for using environment variables for whcih we will
 use python-dotenv package. 
 Now updated requirements.txt file, and use <pip install -r requirements.txt>. Clicked on AutoSave option under FILE menu, so the 
-project get saved in case of any changes. 
+project get saved in case of any changes. we bu
