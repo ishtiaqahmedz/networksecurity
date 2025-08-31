@@ -11,6 +11,29 @@ we ran pip install -r requirements.txt, it installed the packages and in last, d
 made instllations of our developed packages as well. 
 We can add this "-e ." in last when project is matured, this is comunicated by the teacher however ChatGPT and Co-pilot suggest
 to add it at begining of the project. 
+Now after setup, we work on logging. our folder logging will act as a package as we have __init__.py in it. we created loggin.py 
+in that folder. then created exception.py - we completed the code within that and checked if it is working by running 
+<python exception.py>
+
+********** ETL PIPELINE - Extraction, Transformation and Load *************
+
+Data may be extracted from different apis, s3 buckets, websites - may be processed adn cleaned and then it can be saved in data desitnations
+like MongoDB, MySQL etc. This is usually done by Data Engineering Team 
+
+Our problem Statement: check the website if it is pishing or a legit website. We will read the local available data, do some 
+processing and load into MongoDB ATLAS.
+
+I created account, created database on MongoDB, for connecting with MongoDB driver, i selected  python 3.6 or later,
+it provided pip command for installation of driver, updated pymongo in requirements.txt, click done. Once cluster is created,
+go to CONNECT, click driver, click view full code sample, copy the code and paste into push_data.py in your project, changed
+password in the code, saved. python -m pip install "pymongo[srv]==3.6" (as given by MongoDB), changed the working directory 
+in the terminal and ran the test_mongodb_conn.py to check if the  connection is pinging. But these details should not be hardcoded in our file
+so we will create .env file, so we will create MongoDB URL Key and save our password in it. 
+
+we created push_data.py, loaded .env file, we imported certifi package which is used to issue ssl/tls certificate for network security purpose.
+
+
+
 
 
 

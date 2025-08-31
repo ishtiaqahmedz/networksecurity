@@ -43,6 +43,7 @@ class NetworkSecurityException(Exception):
         self.file_name, self.lineno, str(self.error_message))
         #When you print the exception, you get a nice readable error message with:file name,line number,error message
 
+"""
 if __name__=='__main__':
     try:
         logger.logging.info("Entering the try block")
@@ -50,4 +51,4 @@ if __name__=='__main__':
         print("This will not be printed",a)
     except Exception as e:
            raise NetworkSecurityException(e,sys)
-    
+"""
