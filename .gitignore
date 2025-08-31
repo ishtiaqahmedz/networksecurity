@@ -1,2 +1,4 @@
 nenv/
 .env
+Network_Data/
+phisingData.csv
