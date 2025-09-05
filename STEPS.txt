@@ -31,6 +31,14 @@ in the terminal and ran the test_mongodb_conn.py to check if the  connection is 
 so we will create .env file, so we will create MongoDB URL Key and save our password in it. 
 
 we created push_data.py, loaded .env file, we imported certifi package which is used to issue ssl/tls certificate for network security purpose.
+completed and ran push_data.py. then created data_ingestion.py, then config_entity.py and start working on it
+under constant, created training_pipeline folder and created __init__.py and start working in this init file - created data_ingestion
+block there. 
+
+(Note: Instructor added 0.0.0.0/0 - a generic ip address in MongoDB's IP addressses, he said he did it to make http  connection 
+and to cater requests.)
+Then we moved back to config_entity.py and worked on it, after that we started working on data_ingestion.py, 
+
 
 
 
