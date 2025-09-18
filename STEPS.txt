@@ -39,6 +39,43 @@ block there.
 and to cater requests.)
 Then we moved back to config_entity.py and worked on it, after that we started working on data_ingestion.py, 
 
+created dataclass DataIngestionArtifact in entity/artifcat_entity.py  and updated it. 
+Implemented the data ingestion component to read data from MongoDB, save it to a feature store, and split it into train 
+and test datasets.Created modular functions for exporting collections as data frames, saving data to CSV files, 
+and performing train-test splits. Defined a data ingestion artifact class to encapsulate the output paths of the train and 
+test datasets.Demonstrated how to test the data ingestion pipeline end-to-end and verified the creation of expected files 
+and logs. 
+updated requirements.txt and ran it so it can install the reamining dependancies 
+create main.py and incorporated data_ingestion related section.
+Now, Data Validation:
+Data validation is the process of ensuring that data is accurate, complete, consistent, and formatted correctly before it's used,
+stored, or processed. Think of it as a quality gate—only clean, trustworthy data gets through
+
+When reading data from MongoDB, it is crucial that the data schema remains unchanged. For example, if there are ten features 
+in the dataset, all ten features must always be present. If any feature is missing or has a different data type, the model 
+cannot be trained properly.
+Data Drift:
+It is also important to check the distribution of features. For instance, if a feature initially follows a normal distribution
+but later changes to a different distribution, this is known as data drift. Data drift can significantly impact model performance,
+as the new data distribution may differ greatly from the training data.
+Steps: 
+define dataclass in entity/artifcat_entity.py,
+defined constants in constants/traning_pipeline/__init__.py, 
+then update config_entity.py/ DataValidationConfig,
+then update/create: components/data_validation.py
+defined schema file path in constants and created networksecurity/data_schema/schema.yaml to check the schema of the dataset,
+that is number of columns and columns data type. we can create this schema file, with the columns and datatypes programmatically
+Now, we created utils.py under utils/main_utils  where we will define some common/generic functions like read a yaml file
+updated data_validation.py in which we checked schema and data drift. after data validation, we will now work on data transformation.
+
+
+
+
+
+
+
+
+
 
 
 
