@@ -100,9 +100,11 @@ This architecture guides the implementation of the model trainer component.
 After completing the training, we added mlflow local tracking function in the model training component, then ran "mlflow ui" in 
 the terminal. After this we used dagshub to track the models performance with mlflow, we connected with github and connected our
 github repository with dagshub, installed dagshub,  gone to remote/code copied it (import code + init code), after this, mlflow will
-auomatically logs our experiments on DagsHub.
+auomatically logs our experiments on DagsHub. Got url info from dagshub/remote/experiments/mlflow tracking remote, the user id 
+is your dagshub account name, and passwrod is available under remote/dvc/secrete Key.
 
-(now do add github in the repo, then add dagshub, then run main.py)
+
+(add dagshub, then run main.py)
 
 
 
