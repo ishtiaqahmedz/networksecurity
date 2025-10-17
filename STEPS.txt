@@ -101,11 +101,11 @@ After completing the training, we added mlflow local tracking function in the mo
 the terminal. After this we used dagshub to track the models performance with mlflow, we connected with github and connected our
 github repository with dagshub, installed dagshub,  gone to remote/code copied it (import code + init code), after this, mlflow will
 auomatically logs our experiments on DagsHub. Got url info from dagshub/remote/experiments/mlflow tracking remote, the user id 
-is your dagshub account name, and passwrod is available under remote/dvc/secrete Key.
+is your dagshub account name, and passwrod is available under remote/dvc/secrete Key. Ran <python main.py>)
 
-
-(add dagshub, then run main.py)
-
+Model Pusher implementation:
+created final_models folder under root folder, wrote the code to save final model, in model_trainer component, saved preprocessing.pickle
+object in data_transformation.py into final_model folder, so we will push these artifacts in s3 bucket
 
 
 
