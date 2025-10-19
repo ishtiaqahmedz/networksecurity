@@ -3,3 +3,5 @@ nenv/
 Network_Data/
 phisingData.csv
 Artifacts/
+networksecurity_env/
+__pycache__/

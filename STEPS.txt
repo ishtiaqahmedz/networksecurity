@@ -107,6 +107,20 @@ Model Pusher implementation:
 created final_models folder under root folder, wrote the code to save final model, in model_trainer component, saved preprocessing.pickle
 object in data_transformation.py into final_model folder, so we will push these artifacts in s3 bucket
 
+created data_training_pipeline.py under pipleline folder, the work we did in main is done using classes and objects.
+after that, we moved to app.py where we created fast api. front end will be developed by someone however we will focus on backend. 
+added fastapi and uvicorn in requirement.txt. completed app.py, details are written in OneNote, FastApi section. 
+after completion, we ran command in terminal:  uvicorn app:app --reload, the browser is opened with some UI, clicked execute on it,
+the whole pipleline ran.. and that too without using main.py, so this is another way of doing the thing we did in main.py. 
+we can also use this api to collect fresh data, update our mongodb and ran the data indestion again. or run the whole pipleline
+
+Now next step is to create batch prediction, a csv file may be containing data that we need to do prediction, 
+we added template folder, and in this, we added table.html,
+we added valid_data folder and added test.csv in it. we moved to app.py again, added Jinja template,added 
+route "predict", completed it. then ran "uvicorn app:app --reload  (app is our app name and reload is to 
+run the program after changes witout needing to restart it), opened Swagger app and docs via swagger UI
+(in the browser)
+
 
 
 
