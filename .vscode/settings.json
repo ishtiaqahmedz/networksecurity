@@ -1,3 +1,5 @@
 {
-    "editor.inlineSuggest.experimental.showOnSuggestConflict": "never"
+    "editor.inlineSuggest.experimental.showOnSuggestConflict": "never",
+    "terminal.integrated.defaultProfile.linux": "",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt"
 }

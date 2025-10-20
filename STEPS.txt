@@ -117,9 +117,19 @@ we can also use this api to collect fresh data, update our mongodb and ran the d
 Now next step is to create batch prediction, a csv file may be containing data that we need to do prediction, 
 we added template folder, and in this, we added table.html,
 we added valid_data folder and added test.csv in it. we moved to app.py again, added Jinja template,added 
-route "predict", completed it. then ran "uvicorn app:app --reload  (app is our app name and reload is to 
+route "predict", completed it. then ran "uvicorn app:app --reload"  (app is our app name and reload is to 
 run the program after changes witout needing to restart it), opened Swagger app and docs via swagger UI
-(in the browser)
+(in the browser).
+Now go to the browser using the local address given in the terminal (127.0.0.1:8000), you can see Swagger UI, click Train Route, 
+click Try it Out button, and execute.. you can predict by providing the data on which you need prediction. 
+
+Now we will sync our final_model folder to s3 bucket. we can have different models trained on different versions of datasets. Futher,
+we have artifacts of each pipeline module, we will also upload the artifacts folder to s3 bucket. 
+First we created sync_artifact_dir_to_s3 function in training_pipeline.py and then we created sync_saved_model_dir_to_s3 function.
+
+
+
+
 
 
 
