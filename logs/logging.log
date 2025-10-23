@@ -218,3 +218,5 @@
 [2025-10-20 23:39:28,934: INFO :utils:NumExpr defaulting to 12 threads.]
 [2025-10-20 23:39:36,263: INFO :training_pipeline:Start data Ingestion]
 [2025-10-20 23:43:38,985: INFO :utils:NumExpr defaulting to 12 threads.]
+[2025-10-24 00:55:02,736: INFO :utils:NumExpr defaulting to 12 threads.]
+[2025-10-24 00:56:00,726: INFO :training_pipeline:Start data Ingestion]

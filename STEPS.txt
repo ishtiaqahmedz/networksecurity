@@ -125,7 +125,19 @@ click Try it Out button, and execute.. you can predict by providing the data on 
 
 Now we will sync our final_model folder to s3 bucket. we can have different models trained on different versions of datasets. Futher,
 we have artifacts of each pipeline module, we will also upload the artifacts folder to s3 bucket. 
-First we created sync_artifact_dir_to_s3 function in training_pipeline.py and then we created sync_saved_model_dir_to_s3 function.
+First we created a file "s3_syncer.py" under networksecurity/cloud where we created two functions. 
+Then we created sync_artifact_dir_to_s3 function in training_pipeline.py and then we created sync_saved_model_dir_to_s3 function.
+we added these two functions in run_pipeline function in training_pipeline.py. Added self.model_dir in TrainingPipelineConfig
+Now we are configuring AWS Cli:
+search AWS CLI interface, download and install it. Go to command promtpt, write <aws help> to check it it is working.then we created
+an account in AWS, go to IAM Service on AWS, created user "practice_user" and  group "practice_admin", go to users, then security credentials,
+create access key, click use case - command line interface, NEXT, provide description, so access key and secret access key for the IAM user 
+are generated.
+Creat S3 bucket and keep the region same in the whole process
+Now in order to set access key go to CLI, type <aws configure>, provide access key (copy from aws site),then provide secret access key,
+region: none,format json. press enter. Now run the code to check if the artifacts and models are copied to S3 bucket. 
+type <uvicorn app:app --reload>
+
 
 
 
