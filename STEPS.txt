@@ -28,7 +28,10 @@ it provided pip command for installation of driver, updated pymongo in requireme
 go to CONNECT, click driver, click view full code sample, copy the code and paste into push_data.py in your project, changed
 password in the code, saved. python -m pip install "pymongo[srv]==3.6" (as given by MongoDB), changed the working directory 
 in the terminal and ran the test_mongodb_conn.py to check if the  connection is pinging. But these details should not be hardcoded in our file
-so we will create .env file, so we will create MongoDB URL Key and save our password in it. 
+so we will create .env file, so we will create MongoDB URL Key and save our password in it.
+(To avoid hardcoding sensitive information like passwords in your code, create a .env file. Define a key such as MONGODB_URL and 
+assign your full MongoDB connection string as its value.)
+
 
 we created push_data.py, loaded .env file, we imported certifi package which is used to issue ssl/tls certificate for network security purpose.
 completed and ran push_data.py. then created data_ingestion.py, then config_entity.py and start working on it
@@ -117,25 +120,35 @@ we can also use this api to collect fresh data, update our mongodb and ran the d
 Now next step is to create batch prediction, a csv file may be containing data that we need to do prediction, 
 we added template folder, and in this, we added table.html,
 we added valid_data folder and added test.csv in it. we moved to app.py again, added Jinja template,added 
-route "predict", completed it. then ran "uvicorn app:app --reload"  (app is our app name and reload is to 
-run the program after changes witout needing to restart it), opened Swagger app and docs via swagger UI
-(in the browser).
-Now go to the browser using the local address given in the terminal (127.0.0.1:8000), you can see Swagger UI, click Train Route, 
-click Try it Out button, and execute.. you can predict by providing the data on which you need prediction. 
+route "predict", added prediction_out put folder on the root folder,  completed it. then ran "uvicorn app:app --reload"  
+(app is our app name and <--reload> is to run the program after changes witout needing to restart it), opened Swagger app and docs via swagger UI
+(in the browser). clicked the link/ entered the local server path (127.0.0.1:8000) 
+,you can see Swagger UI, click Prediction Route button to predict and training button to train, 
+
+
+You can predict by providing the test data under valid_data folder on which you need prediction. Go to /predict endpoint, 
+Select file via Swagger UI, 
+click execute under predict route. the out put will be saved under prediction_output/output.csv.
+
 
 Now we will sync our final_model folder to s3 bucket. we can have different models trained on different versions of datasets. Futher,
-we have artifacts of each pipeline module, we will also upload the artifacts folder to s3 bucket. 
+we have artifacts of each pipeline module, we will also upload the artifacts folder to s3 bucket.
+
 First we created a file "s3_syncer.py" under networksecurity/cloud where we created two functions. 
 Then we created sync_artifact_dir_to_s3 function in training_pipeline.py and then we created sync_saved_model_dir_to_s3 function.
 we added these two functions in run_pipeline function in training_pipeline.py. Added self.model_dir in TrainingPipelineConfig
 Now we are configuring AWS Cli:
+
 search AWS CLI interface, download and install it. Go to command promtpt, write <aws help> to check it it is working.then we created
 an account in AWS, go to IAM Service on AWS, created user "practice_user" and  group "practice_admin", go to users, then security credentials,
 create access key, click use case - command line interface, NEXT, provide description, so access key and secret access key for the IAM user 
 are generated.
-Creat S3 bucket and keep the region same in the whole process
+Access S3 services in AWS website, Create S3 bucket "ishtiaqahmedz-netwworksecurity: and keep the region same in the whole process.
+The S3 bucket name need to be unique globally
+
 Now in order to set access key go to CLI, type <aws configure>, provide access key (copy from aws site),then provide secret access key,
 region: none,format json. press enter. Now run the code to check if the artifacts and models are copied to S3 bucket. 
+
 type <uvicorn app:app --reload>
 
 
