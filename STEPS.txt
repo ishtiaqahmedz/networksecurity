@@ -154,6 +154,19 @@ type <uvicorn app:app --reload>
 
 
 
+Now, we would deploy our project. 
+
+We will save our project in a Docker Image and then will deploy it on AWS ECR (we can also do it on DockerHub) and then we will deploy it
+on AWS EC2 , for this we will use GitHub Actions.
+
+First we complete code in Docker file, the details/explaination is available in OneNote/Dockers. The app at the end of the Docker file will
+run app.py, for which the comments are given at the bottom of app.py
+
+Now, .github/wrokflows/main.yaml to provide the commands that will configure github actions, the configuration is made, the breakup/explaination 
+of this code is written in OneNote/GitHub Actions. now, git add. then git commit, git push. then we went to github, checked github actions, the 
+"deployment changes" are available in that section. 
+
+
 
 
 
