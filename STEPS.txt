@@ -152,8 +152,6 @@ region: none,format json. press enter. Now run the code to check if the artifact
 type <uvicorn app:app --reload>
 
 
-
-
 Now, we would deploy our project. 
 
 We will save our project in a Docker Image and then will deploy it on AWS ECR (we can also do it on DockerHub) and then we will deploy it
@@ -162,9 +160,33 @@ on AWS EC2 , for this we will use GitHub Actions.
 First we complete code in Docker file, the details/explaination is available in OneNote/Dockers. The app at the end of the Docker file will
 run app.py, for which the comments are given at the bottom of app.py
 
-Now, .github/wrokflows/main.yaml to provide the commands that will configure github actions, the configuration is made, the breakup/explaination 
+Now, .github/wrokflows/main.yaml to provide the commands that will configure github actions (till "intergration" block), the configuration is made, the breakup/explaination 
 of this code is written in OneNote/GitHub Actions. now, git add. then git commit, git push. then we went to github, checked github actions, the 
 "deployment changes" are available in that section. 
+
+Now we will code our GitHub Action so that we can build docker image auomatically, and deploy it into AWS ECR instance. So go to AWS, 
+search ECTR service, enter it, create a repository,we copy-pasted the uri of repository in readme.md. 
+Now we got back to main.yaml where we would update the file to create image and push it into ECR. we created a job in GitHUb actions:
+"build-and-push-ecr-image" block, copy pasted the code from downloaded resource of KrishTech. the details of this code is written in 
+OneNote/GitHub Actions. Now we will create secret key in github actions.
+To create secret-key: go to git hub repository page, setting, secret and variables, actions, new repository secret,
+the first secret key created is "AWS_ACCESS_KEY_ID" (we went to AWS, IAM, users - go to the user created for networksecurity project-, then
+Security credentials,create access key (as password of previous key was not visible may be the browser was closed, thats why), copy pasted
+both key and password in readme.txt file. 
+
+Now added "AWS_ACCESS_KEY_ID" as name and KEY (not password)  in secret field in github settings/security/secrets and variables
+/ actions secrets/new reopsitory secret
+then added "AWS_SECRET_ACCESS_KEY" as name and added aws key password in the secret field. then added aws region name and value as repo secrets
+and then added "AWS_ECR_LOGIN_URI"" in the same key-value pai (uri without repository name), and then "ECR_REPOSITORY_NAME" in similar way.
+All of the above key:values can now be seen in  github/respository secrets.
+
+NOTE:
+when i tried to push readme.md with secret keys in it, github shown the error: "error: failed to push some refs to 'https://github.com/ishtiaqahmedz/networksecurity.git'"
+and eror message explained "Push cannot contain secrets", so i removed the secrets and tried again.
+
+
+
+
 
 
 
