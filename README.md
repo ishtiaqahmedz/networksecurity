@@ -13,6 +13,8 @@ AWS_ECR_LOGIN_URI = 821738009443.dkr.ecr.us-east-1.amazonaws.com
 ECR_REPOSITORY_NAME = networksecurity
 
 
+
+
 Docker Setup In EC2 commands to be Executed
 #optinal
 

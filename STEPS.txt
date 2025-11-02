@@ -187,6 +187,30 @@ commit as well. i did it and it worked.
 
 After pushing in the git to remote, you can see the process been taken in github/actions that is building docker image and pushing it in ECR.
 
+Now, working on deployment to EC2.
+First go to AWS/EC2 services, go to instance, click Launch Instance, give instance name of your choice, select Ubuntu from the Server Image type
+select the server  configuration in instance type (t2 mediuum has 4gb which is ok, micro has 1GB which is not enough for us), 
+create a key-pair of your choice (chosen "networksecurity-ec2"), select SSH, HTTP, HTTPS options, 
+click finished/launch instance. 
+After that, click connect to instance. and CLI screen will show up where we need to do some 
+pre-requisite installations/configration to setup EC2.  These setup/configration commands are given in Readme.md. 
+we will copy and past (right click via mouse if CLI is not pasting the items correctly) them on EC2 terminal. 
+But remember to delete the instance after using it to avoid being charged. 
+After checking if the docker is running fine in EC2, go to GitHub/settings/actions/runner to create a particular runner:
+Click New Self Hosted Runner button (this runner will be responsible in listening for any any push or merge, any, any kind of events that
+are happening in the GitHub repository), click on Linux, then copy paste the commands given below on the page on EC2 console under 
+download and configure blocks. on second last command, it will initiate GitHub on the EC2. it will ask to enter the name of the group - skip it,
+then it will ask for name - copy it from the main.yaml under continous deployment - it is "self-Hosted", then EC2 will ask for additional labels
+ - skip it. ask for the folder name, skip it. Then run the last command.the message will show "listening for jobs", Running jobs - continous deployment"
+ now if you go to the runners in github it will show our configured runner. 
+
+Now we will push our code, app runner will listen at the push event, and our code of contienous deployment will run via github actions.
+
+
+
+
+
+
 
 
 
