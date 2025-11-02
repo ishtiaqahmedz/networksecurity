@@ -182,7 +182,11 @@ All of the above key:values can now be seen in  github/respository secrets.
 
 NOTE:
 when i tried to push readme.md with secret keys in it, github shown the error: "error: failed to push some refs to 'https://github.com/ishtiaqahmedz/networksecurity.git'"
-and eror message explained "Push cannot contain secrets", so i removed the secrets and tried again.
+and eror message explained "Push cannot contain secrets", so i removed the secrets and tried again.It didnt work so i had to roll back the last 
+commit as well. i did it and it worked.
+
+After pushing in the git to remote, you can see the process been taken in github/actions that is building docker image and pushing it in ECR.
+
 
 
 
