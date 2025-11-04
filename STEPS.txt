@@ -194,6 +194,7 @@ create a key-pair of your choice (chosen "networksecurity-ec2"), select SSH, HTT
 click finished/launch instance. 
 After that, click connect to instance. and CLI screen will show up where we need to do some 
 pre-requisite installations/configration to setup EC2.  These setup/configration commands are given in Readme.md. 
+
 we will copy and past (right click via mouse if CLI is not pasting the items correctly) them on EC2 terminal. 
 But remember to delete the instance after using it to avoid being charged. 
 After checking if the docker is running fine in EC2, go to GitHub/settings/actions/runner to create a particular runner:
@@ -205,6 +206,16 @@ then it will ask for name - copy it from the main.yaml under continous deploymen
  now if you go to the runners in github it will show our configured runner. 
 
 Now we will push our code, app runner will listen at the push event, and our code of contienous deployment will run via github actions.
+
+Note:
+I saw multiple issues: first the volume issue on EC2, then the instace was deleted by me that deleted Dockers and AWS intallations that i
+made on EC2, i also ran some commands copied from chatgpr to merge the partitions made due to increase in volume of the instance. 
+
+Now once the last contineous deployment process is completed, we opened the instance page and clicked "open address", the page that openend, 
+we put /8080/docs but the page was not viewed.
+now go to instance/security/security groups/ , edit unbound rule , add custom TCP, add custom port 80800 (the one you gave in  dockers section 
+in main.yaml), select "anywhere ipv4 adress and select 0.0.0.0/0 from adjucent dropdown combo, save rule. now go to the instance page, 
+copy public IPv4 address,
 
 
 

@@ -14,7 +14,6 @@ ECR_REPOSITORY_NAME = networksecurity
 
 
 
-
 Docker Setup In EC2 commands to be Executed
 #optinal
 
