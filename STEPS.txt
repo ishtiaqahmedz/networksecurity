@@ -190,7 +190,7 @@ After pushing in the git to remote, you can see the process been taken in github
 Now, working on deployment to EC2.
 First go to AWS/EC2 services, go to instance, click Launch Instance, give instance name of your choice, select Ubuntu from the Server Image type
 select the server  configuration in instance type (t2 mediuum has 4gb which is ok, micro has 1GB which is not enough for us), 
-create a key-pair of your choice (chosen "networksecurity-ec2"), select SSH, HTTP, HTTPS options, 
+create a key-pair of your choice (chosen "networksecurity-ec2"), (the key, .pem file was downloaded automatically to Downloads folder). select SSH, HTTP, HTTPS options, 
 click finished/launch instance. 
 After that, click connect to instance. and CLI screen will show up where we need to do some 
 pre-requisite installations/configration to setup EC2.  These setup/configration commands are given in Readme.md. 
